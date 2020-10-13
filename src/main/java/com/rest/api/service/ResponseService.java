@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.rest.api.service.ResponseService.CommonResponse.FAIL;
 import static com.rest.api.service.ResponseService.CommonResponse.SUCCESS;
 
 @Service
@@ -46,11 +45,11 @@ public class ResponseService {
         return result;
     }
 
-    public CommonResult getFailResult() {
+    public CommonResult getFailResult(int code, String message) {
         CommonResult result = new CommonResult();
         result.setSuccess(false);
-        result.setCode(FAIL.code);
-        result.setMessage(FAIL.message);
+        result.setCode(code);
+        result.setMessage(message);
         return result;
     }
 

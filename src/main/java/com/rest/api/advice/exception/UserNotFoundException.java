@@ -1,4 +1,4 @@
-package com.rest.api.exception;
+package com.rest.api.advice.exception;
 
 public class UserNotFoundException extends RuntimeException {
 

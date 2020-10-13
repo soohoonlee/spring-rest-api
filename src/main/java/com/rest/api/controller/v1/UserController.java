@@ -1,7 +1,7 @@
 package com.rest.api.controller.v1;
 
 import com.rest.api.entity.User;
-import com.rest.api.exception.UserNotFoundException;
+import com.rest.api.advice.exception.UserNotFoundException;
 import com.rest.api.model.response.CommonResult;
 import com.rest.api.model.response.ListResult;
 import com.rest.api.model.response.SingleResult;
@@ -37,7 +37,8 @@ public class UserController {
 
     @ApiOperation(value = "회원 단건 조회", notes = "userId로 회원을 조회한다.")
     @GetMapping(value = "/user/{id}")
-    public SingleResult<User> findUserById(@ApiParam(value = "회원 번호", required = true) @PathVariable Long id) {
+    public SingleResult<User> findUserById(@ApiParam(value = "회원 번호", required = true) @PathVariable Long id,
+                                           @ApiParam(value = "언어", defaultValue = "ko") @RequestParam String lang) {
         return responseService.getSingleResult(userRepository.findById(id).orElseThrow(UserNotFoundException::new));
     }
 

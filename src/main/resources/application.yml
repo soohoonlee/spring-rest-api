@@ -12,3 +12,6 @@ spring:
   h2:
     console:
       enabled: true
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
